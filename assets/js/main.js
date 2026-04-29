@@ -110,15 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const navOverlay = document.getElementById("nav-overlay");
 
   function openMenu() {
+    if (!navMenu) return;
     navMenu.classList.add("show-menu");
-    navOverlay.classList.add("show-overlay");
-    navToggle.setAttribute("aria-expanded", "true");
+    if (navOverlay) navOverlay.classList.add("show-overlay");
+    if (navToggle) navToggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   }
+
   function closeMenu() {
+    if (!navMenu) return;
     navMenu.classList.remove("show-menu");
-    navOverlay.classList.remove("show-overlay");
-    navToggle.setAttribute("aria-expanded", "false");
+    if (navOverlay) navOverlay.classList.remove("show-overlay");
+    if (navToggle) navToggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
 
@@ -126,8 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navClose)   navClose.addEventListener("click", closeMenu);
   if (navOverlay) navOverlay.addEventListener("click", closeMenu);
 
+  // Close on any nav link click (both desktop and mobile)
   document.querySelectorAll(".nav__link").forEach(link => {
     link.addEventListener("click", closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeMenu();
   });
 
   /*==================== ACTIVE LINK ON SCROLL ====================*/
@@ -139,9 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const top    = section.offsetTop - 90;
       const height = section.offsetHeight;
       const id     = section.getAttribute("id");
-      const link   = document.querySelector(`.nav__menu a[href*="${id}"]`);
-      if (!link) return;
-      link.classList.toggle("active-link", scrollY >= top && scrollY < top + height);
+      // update both desktop and mobile links
+      document.querySelectorAll(`.nav__link[href*="${id}"]`).forEach(link => {
+        link.classList.toggle("active-link", scrollY >= top && scrollY < top + height);
+      });
     });
   }
   window.addEventListener("scroll", scrollActive, { passive: true });

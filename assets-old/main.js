@@ -104,21 +104,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /*==================== MOBILE MENU ====================*/
-  const navMenu   = document.getElementById("nav-menu");
-  const navToggle = document.getElementById("nav-toggle");
-  const navClose  = document.getElementById("nav-close");
+  const navMenu    = document.getElementById("nav-menu");
+  const navToggle  = document.getElementById("nav-toggle");
+  const navClose   = document.getElementById("nav-close");
+  const navOverlay = document.getElementById("nav-overlay");
 
   function openMenu() {
     navMenu.classList.add("show-menu");
+    navOverlay.classList.add("show-overlay");
     navToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
   }
   function closeMenu() {
     navMenu.classList.remove("show-menu");
+    navOverlay.classList.remove("show-overlay");
     navToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
   }
 
-  if (navToggle) navToggle.addEventListener("click", openMenu);
-  if (navClose)  navClose.addEventListener("click", closeMenu);
+  if (navToggle)  navToggle.addEventListener("click", openMenu);
+  if (navClose)   navClose.addEventListener("click", closeMenu);
+  if (navOverlay) navOverlay.addEventListener("click", closeMenu);
 
   document.querySelectorAll(".nav__link").forEach(link => {
     link.addEventListener("click", closeMenu);

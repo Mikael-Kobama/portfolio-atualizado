@@ -43,81 +43,68 @@
           >Mikael<span class="nav__logo-dot">.</span></a
         >
 
-        <div
-          class="nav__menu"
-          id="nav-menu"
-          role="dialog"
-          aria-label="Menu de navegação"
-        >
-          <button class="nav__close" id="nav-close" aria-label="Fechar menu">
-            <i class="uil uil-times"></i>
-          </button>
-          <ul class="nav__list" role="list">
-            <li>
-              <a
-                href="#home"
-                class="nav__link active-link"
-                data-pt="Home"
-                data-en="Home"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a href="#about" class="nav__link" data-pt="Sobre" data-en="About"
-                >Sobre</a
-              >
-            </li>
-            <li>
-              <a
-                href="#skills"
-                class="nav__link"
-                data-pt="Habilidades"
-                data-en="Skills"
-                >Habilidades</a
-              >
-            </li>
-            <li>
-              <a
-                href="#portfolio"
-                class="nav__link"
-                data-pt="Portfolio"
-                data-en="Portfolio"
-                >Portfolio</a
-              >
-            </li>
-            <li>
-              <a
-                href="#certs"
-                class="nav__link"
-                data-pt="Certificações"
-                data-en="Certs"
-                >Certificações</a
-              >
-            </li>
-            <li>
-              <a
-                href="#qualification"
-                class="nav__link"
-                data-pt="Formação"
-                data-en="Education"
-                >Formação</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="nav__overlay" id="nav-overlay"></div>
+        <!-- Desktop links -->
+        <ul class="nav__list nav__list--desktop" role="list">
+          <li>
+            <a
+              href="#home"
+              class="nav__link active-link"
+              data-pt="Home"
+              data-en="Home"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="#about" class="nav__link" data-pt="Sobre" data-en="About"
+              >Sobre</a
+            >
+          </li>
+          <li>
+            <a
+              href="#skills"
+              class="nav__link"
+              data-pt="Habilidades"
+              data-en="Skills"
+              >Habilidades</a
+            >
+          </li>
+          <li>
+            <a
+              href="#portfolio"
+              class="nav__link"
+              data-pt="Portfolio"
+              data-en="Portfolio"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="#certs"
+              class="nav__link"
+              data-pt="Certificações"
+              data-en="Certs"
+              >Certificações</a
+            >
+          </li>
+          <li>
+            <a
+              href="#qualification"
+              class="nav__link"
+              data-pt="Formação"
+              data-en="Education"
+              >Formação</a
+            >
+          </li>
+        </ul>
 
         <div class="nav__btns">
-          <!-- Language toggle -->
           <button
             class="lang-toggle"
             id="lang-toggle"
             aria-label="Alternar idioma"
-            title="Toggle language"
           >
-            <span class="lang-toggle__label" id="lang-label">EN</span>
+            <span id="lang-label">EN</span>
           </button>
-          <!-- Theme toggle -->
           <button
             class="theme-toggle"
             id="theme-button"
@@ -125,7 +112,6 @@
           >
             <i class="uil uil-moon" id="theme-icon"></i>
           </button>
-          <!-- Mobile toggle -->
           <button
             class="nav__toggle"
             id="nav-toggle"
@@ -137,6 +123,69 @@
         </div>
       </nav>
     </header>
+
+    <!-- OVERLAY -->
+    <div class="nav__overlay" id="nav-overlay"></div>
+
+    <!-- MOBILE MENU (outside header to avoid z-index conflicts) -->
+    <div class="nav__menu" id="nav-menu">
+      <div class="nav__menu-header">
+        <span class="nav__menu-logo"
+          >Mikael<span class="nav__logo-dot">.</span></span
+        >
+        <button class="nav__close" id="nav-close" aria-label="Fechar menu">
+          <i class="uil uil-times"></i>
+        </button>
+      </div>
+      <ul class="nav__list" role="list">
+        <li>
+          <a href="#home" class="nav__link" data-pt="Home" data-en="Home"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="#about" class="nav__link" data-pt="Sobre" data-en="About"
+            >Sobre</a
+          >
+        </li>
+        <li>
+          <a
+            href="#skills"
+            class="nav__link"
+            data-pt="Habilidades"
+            data-en="Skills"
+            >Habilidades</a
+          >
+        </li>
+        <li>
+          <a
+            href="#portfolio"
+            class="nav__link"
+            data-pt="Portfolio"
+            data-en="Portfolio"
+            >Portfolio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#certs"
+            class="nav__link"
+            data-pt="Certificações"
+            data-en="Certs"
+            >Certificações</a
+          >
+        </li>
+        <li>
+          <a
+            href="#qualification"
+            class="nav__link"
+            data-pt="Formação"
+            data-en="Education"
+            >Formação</a
+          >
+        </li>
+      </ul>
+    </div>
 
     <!--==================== MAIN ====================-->
     <main id="main-content">

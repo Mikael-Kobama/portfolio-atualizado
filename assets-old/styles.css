@@ -211,28 +211,58 @@ body.light-theme .header { background: rgba(244,245,251,0.92); }
   display: none; align-items: center; justify-content: center;
   width: 36px; height: 36px;
   font-size: 1.3rem; color: var(--title); cursor: pointer;
-}
-.nav__close {
-  display: none; position: absolute;
-  right: var(--sp-6); bottom: var(--sp-4);
-  font-size: 1.5rem; cursor: pointer; color: var(--accent);
   background: none; border: none;
 }
+.nav__close {
+  display: none;
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-6);
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--accent);
+  background: none;
+  border: none;
+  line-height: 1;
+  z-index: 10;
+}
+
+/* Overlay behind menu */
+.nav__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  backdrop-filter: blur(2px);
+}
+.nav__overlay.show-overlay { display: block; }
 
 @media screen and (max-width: 767px) {
   .nav__toggle { display: flex; }
-  .nav__close { display: block; }
+  .nav__close  { display: block; }
+
   .nav__menu {
-    position: fixed; bottom: -100%; left: 0; right: 0;
+    position: fixed;
+    bottom: -100%;
+    left: 0; right: 0;
     background: var(--surface);
-    padding: var(--sp-8) var(--sp-6) 3rem;
+    padding: var(--sp-12) var(--sp-6) 3rem;
     border-top: 1px solid var(--border);
     border-radius: 1.5rem 1.5rem 0 0;
-    transition: 0.4s cubic-bezier(0.4,0,0.2,1);
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+    /* make sure it stacks above overlay */
   }
   .nav__menu.show-menu { bottom: 0; }
-  .nav__list { flex-direction: column; gap: var(--sp-8); align-items: flex-start; }
-  .nav__link { font-size: 1rem; }
+
+  .nav__list {
+    flex-direction: column;
+    gap: var(--sp-6);
+    align-items: flex-start;
+    margin-top: var(--sp-4);
+  }
+  .nav__link { font-size: 1.05rem; }
 }
 
 /*==================== HOME ====================*/
