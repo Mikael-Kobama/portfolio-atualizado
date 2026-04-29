@@ -1,151 +1,271 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /*==================== MENU SHOW & HIDDEN ====================*/
-  const navMenu = document.getElementById("nav-menu");
+
+  /*==================== TRANSLATIONS ====================*/
+  const i18n = {
+    pt: {
+      "nav-home":          "Home",
+      "nav-about":         "Sobre",
+      "nav-skills":        "Habilidades",
+      "nav-portfolio":     "Portfolio",
+      "nav-certs":         "Certificações",
+      "nav-qualification": "Formação",
+      "lang-label":        "EN",
+      "theme-label-dark":  "Tema escuro",
+      "theme-label-light": "Tema claro",
+    },
+    en: {
+      "nav-home":          "Home",
+      "nav-about":         "About",
+      "nav-skills":        "Skills",
+      "nav-portfolio":     "Portfolio",
+      "nav-certs":         "Certs",
+      "nav-qualification": "Education",
+      "lang-label":        "PT",
+      "theme-label-dark":  "Dark theme",
+      "theme-label-light": "Light theme",
+    }
+  };
+
+  let currentLang = localStorage.getItem("selected-lang") || "pt";
+
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem("selected-lang", lang);
+
+    // Update html lang attr
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+
+    // Update all [data-pt] / [data-en] elements
+    document.querySelectorAll("[data-pt][data-en]").forEach(el => {
+      const val = lang === "pt" ? el.dataset.pt : el.dataset.en;
+      if (val !== undefined) el.innerHTML = val;
+    });
+
+    // Update lang toggle label
+    const langLabel = document.getElementById("lang-label");
+    if (langLabel) langLabel.textContent = lang === "pt" ? "EN" : "PT";
+
+    // Update page title
+    document.title = lang === "pt"
+      ? "Mikael Kobama — Dev Full Stack"
+      : "Mikael Kobama — Full Stack Developer";
+
+    // Update meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.content = lang === "pt"
+        ? "Mikael Kobama — Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
+        : "Mikael Kobama — Junior Full Stack Developer | AWS | React | Node.js";
+    }
+
+    // Update skill names that have data-pt/en inside .skills__name
+    document.querySelectorAll(".skills__name[data-pt][data-en]").forEach(el => {
+      el.textContent = lang === "pt" ? el.dataset.pt : el.dataset.en;
+    });
+  }
+
+  // Init language
+  applyLang(currentLang);
+
+  // Lang toggle button
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      applyLang(currentLang === "pt" ? "en" : "pt");
+    });
+  }
+
+  /*==================== THEME ====================*/
+  const themeButton = document.getElementById("theme-button");
+  const themeIcon   = document.getElementById("theme-icon");
+  const lightClass  = "light-theme";
+
+  function applyTheme(theme) {
+    if (theme === "light") {
+      document.body.classList.add(lightClass);
+      if (themeIcon) { themeIcon.classList.remove("uil-moon"); themeIcon.classList.add("uil-sun"); }
+      if (themeButton) themeButton.setAttribute("aria-label", currentLang === "pt" ? "Ativar tema escuro" : "Enable dark theme");
+    } else {
+      document.body.classList.remove(lightClass);
+      if (themeIcon) { themeIcon.classList.remove("uil-sun"); themeIcon.classList.add("uil-moon"); }
+      if (themeButton) themeButton.setAttribute("aria-label", currentLang === "pt" ? "Ativar tema claro" : "Enable light theme");
+    }
+    localStorage.setItem("selected-theme", theme);
+  }
+
+  const savedTheme = localStorage.getItem("selected-theme") || "dark";
+  applyTheme(savedTheme);
+
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      const isLight = document.body.classList.contains(lightClass);
+      applyTheme(isLight ? "dark" : "light");
+    });
+  }
+
+  /*==================== MOBILE MENU ====================*/
+  const navMenu   = document.getElementById("nav-menu");
   const navToggle = document.getElementById("nav-toggle");
-  const navClose = document.getElementById("nav-close");
+  const navClose  = document.getElementById("nav-close");
 
-  if (navToggle) {
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.add("show-menu");
-    });
+  function openMenu() {
+    navMenu.classList.add("show-menu");
+    navToggle.setAttribute("aria-expanded", "true");
+  }
+  function closeMenu() {
+    navMenu.classList.remove("show-menu");
+    navToggle.setAttribute("aria-expanded", "false");
   }
 
-  if (navClose) {
-    navClose.addEventListener("click", () => {
-      navMenu.classList.remove("show-menu");
-    });
-  }
+  if (navToggle) navToggle.addEventListener("click", openMenu);
+  if (navClose)  navClose.addEventListener("click", closeMenu);
 
-  /*==================== REMOVE MENU ON LINK CLICK ====================*/
-  document.querySelectorAll(".nav__link").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (navMenu) navMenu.classList.remove("show-menu");
-    });
+  document.querySelectorAll(".nav__link").forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 
-  /*==================== SCROLL ACTIVE LINK ====================*/
+  /*==================== ACTIVE LINK ON SCROLL ====================*/
   const sections = document.querySelectorAll("section[id]");
 
   function scrollActive() {
     const scrollY = window.pageYOffset;
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 80;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-      const navLink = document.querySelector(
-        `.nav__menu a[href*="${sectionId}"]`,
-      );
-
-      if (!navLink) return;
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLink.classList.add("active-link");
-      } else {
-        navLink.classList.remove("active-link");
-      }
+    sections.forEach(section => {
+      const top    = section.offsetTop - 90;
+      const height = section.offsetHeight;
+      const id     = section.getAttribute("id");
+      const link   = document.querySelector(`.nav__menu a[href*="${id}"]`);
+      if (!link) return;
+      link.classList.toggle("active-link", scrollY >= top && scrollY < top + height);
     });
   }
-  window.addEventListener("scroll", scrollActive);
+  window.addEventListener("scroll", scrollActive, { passive: true });
 
-  /*==================== SCROLL UP BUTTON ====================*/
+  /*==================== SCROLL UP ====================*/
   const scrollUpBtn = document.getElementById("scroll-up");
-
   function handleScrollUp() {
-    if (!scrollUpBtn) return;
-    scrollUpBtn.classList.toggle("show-scroll", window.scrollY >= 400);
+    if (scrollUpBtn) scrollUpBtn.classList.toggle("show-scroll", window.scrollY >= 400);
   }
-  window.addEventListener("scroll", handleScrollUp);
+  window.addEventListener("scroll", handleScrollUp, { passive: true });
 
   /*==================== SKILLS ACCORDION ====================*/
   const skillsContents = document.querySelectorAll(".skills__content");
-  const skillsHeaders = document.querySelectorAll(".skills__header");
+  const skillsHeaders  = document.querySelectorAll(".skills__header");
 
-  skillsHeaders.forEach((header) => {
+  function animateBars(content) {
+    if (content.classList.contains("animated")) return;
+    content.classList.add("animated");
+  }
+
+  skillsHeaders.forEach(header => {
     header.addEventListener("click", function () {
       const parent = this.closest(".skills__content");
       const isOpen = parent.classList.contains("skills__open");
 
-      skillsContents.forEach((content) => {
-        content.classList.remove("skills__open");
-        content.classList.add("skills__close");
+      skillsContents.forEach(c => {
+        c.classList.remove("skills__open");
+        c.classList.add("skills__close");
+        this.setAttribute && this.setAttribute("aria-expanded", "false");
       });
+
+      // Update aria-expanded on all headers
+      skillsHeaders.forEach(h => h.setAttribute("aria-expanded", "false"));
 
       if (!isOpen) {
         parent.classList.add("skills__open");
         parent.classList.remove("skills__close");
+        this.setAttribute("aria-expanded", "true");
+        // Animate bars when opened
+        setTimeout(() => animateBars(parent), 50);
       }
+    });
+
+    // Keyboard support
+    header.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); header.click(); }
     });
   });
 
+  // Animate first open accordion on load
+  const firstOpen = document.querySelector(".skills__content.skills__open");
+  if (firstOpen) setTimeout(() => animateBars(firstOpen), 300);
+
   /*==================== PORTFOLIO FILTER ====================*/
-  const filterBtns = document.querySelectorAll(".portfolio__filter-btn");
+  const filterBtns     = document.querySelectorAll(".portfolio__filter-btn");
   const portfolioCards = document.querySelectorAll(".portfolio__card");
 
-  filterBtns.forEach((btn) => {
+  filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => b.classList.remove("active"));
+      filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       const filter = btn.dataset.filter;
+      let visibleCount = 0;
 
-      portfolioCards.forEach((card) => {
-        if (filter === "all" || card.dataset.type === filter) {
-          card.classList.remove("hidden");
-        } else {
-          card.classList.add("hidden");
-        }
+      portfolioCards.forEach(card => {
+        const matches = filter === "all" || card.dataset.type === filter;
+        card.classList.toggle("hidden", !matches);
+        if (matches) visibleCount++;
       });
     });
   });
 
-  /*==================== FADE-UP ANIMATION ON SCROLL ====================*/
-  const fadeElements = document.querySelectorAll(".fade-up");
+  /*==================== FADE-UP ON SCROLL ====================*/
+  const fadeEls = document.querySelectorAll(".fade-up");
 
-  const fadeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+  if ("IntersectionObserver" in window) {
+    const fadeObs = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
+          // Stagger siblings inside same parent
+          const siblings = entry.target.parentElement.querySelectorAll(".fade-up");
+          siblings.forEach((el, idx) => {
+            if (el === entry.target) {
+              setTimeout(() => el.classList.add("visible"), idx * 80);
+            }
+          });
           entry.target.classList.add("visible");
-          fadeObserver.unobserve(entry.target);
+          fadeObs.unobserve(entry.target);
         }
       });
-    },
-    { threshold: 0.1 },
-  );
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
-  fadeElements.forEach((el) => fadeObserver.observe(el));
-
-  /*==================== DARK / LIGHT THEME ====================*/
-  const themeButton = document.getElementById("theme-button");
-  const lightTheme = "light-theme";
-  const iconLight = "uil-sun";
-  const iconDark = "uil-moon";
-
-  const savedTheme = localStorage.getItem("selected-theme");
-
-  if (savedTheme === "light") {
-    document.body.classList.add(lightTheme);
-    if (themeButton) {
-      themeButton.classList.remove(iconDark);
-      themeButton.classList.add(iconLight);
-    }
+    fadeEls.forEach(el => fadeObs.observe(el));
+  } else {
+    // Fallback
+    fadeEls.forEach(el => el.classList.add("visible"));
   }
 
-  function getCurrentTheme() {
-    return document.body.classList.contains(lightTheme) ? "light" : "dark";
+  /*==================== SKILLS BARS ON SCROLL ====================*/
+  if ("IntersectionObserver" in window) {
+    const skillsObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const openContent = entry.target.querySelector(".skills__content.skills__open");
+          if (openContent) animateBars(openContent);
+          skillsObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const skillsSection = document.getElementById("skills");
+    if (skillsSection) skillsObs.observe(skillsSection);
   }
 
-  if (themeButton) {
-    themeButton.addEventListener("click", () => {
-      document.body.classList.toggle(lightTheme);
+  /*==================== CERTS ANIMATION ====================*/
+  if ("IntersectionObserver" in window) {
+    const certsObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll(".certs__card").forEach((card, i) => {
+            setTimeout(() => card.classList.add("visible"), i * 80);
+          });
+          certsObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-      const isLight = document.body.classList.contains(lightTheme);
-      themeButton.classList.toggle(iconLight, isLight);
-      themeButton.classList.toggle(iconDark, !isLight);
-
-      localStorage.setItem("selected-theme", getCurrentTheme());
-      localStorage.setItem("selected-icon", isLight ? iconLight : iconDark);
-    });
+    const certsGrid = document.querySelector(".certs__grid");
+    if (certsGrid) certsObs.observe(certsGrid);
   }
+
 }); // end DOMContentLoaded

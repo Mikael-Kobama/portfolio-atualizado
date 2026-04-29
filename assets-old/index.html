@@ -1,148 +1,276 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/assets/img/logotipo.svg" />
-
-    <!--==================== UNICONS ====================-->
+    <meta
+      name="description"
+      content="Mikael Kobama — Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
+    />
+    <meta name="theme-color" content="#0a0a0f" />
+    <link rel="icon" type="image/png" href="./assets/img/logotipo.svg" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-
-    <!--==================== GOOGLE FONTS ====================-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-
-    <!--==================== SWIPER CSS ====================-->
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
-
-    <!--==================== CSS ====================-->
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
     <title>Mikael Kobama — Dev Full Stack</title>
   </head>
-
   <body>
+    <!-- SKIP LINK (Accessibility) -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      data-pt="Pular para o conteúdo"
+      data-en="Skip to content"
+      >Pular para o conteúdo</a
+    >
+
     <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#home" class="nav__logo"
+    <header class="header" id="header" role="banner">
+      <nav
+        class="nav container"
+        role="navigation"
+        aria-label="Navegação principal"
+      >
+        <a href="#home" class="nav__logo" aria-label="Ir para o início"
           >Mikael<span class="nav__logo-dot">.</span></a
         >
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">Home</a>
+        <div
+          class="nav__menu"
+          id="nav-menu"
+          role="dialog"
+          aria-label="Menu de navegação"
+        >
+          <ul class="nav__list" role="list">
+            <li>
+              <a
+                href="#home"
+                class="nav__link active-link"
+                data-pt="Home"
+                data-en="Home"
+                >Home</a
+              >
             </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">Sobre</a>
+            <li>
+              <a href="#about" class="nav__link" data-pt="Sobre" data-en="About"
+                >Sobre</a
+              >
             </li>
-            <li class="nav__item">
-              <a href="#skills" class="nav__link">Habilidades</a>
+            <li>
+              <a
+                href="#skills"
+                class="nav__link"
+                data-pt="Habilidades"
+                data-en="Skills"
+                >Habilidades</a
+              >
             </li>
-            <li class="nav__item">
-              <a href="#portfolio" class="nav__link">Portfolio</a>
+            <li>
+              <a
+                href="#portfolio"
+                class="nav__link"
+                data-pt="Portfolio"
+                data-en="Portfolio"
+                >Portfolio</a
+              >
             </li>
-            <li class="nav__item">
-              <a href="#qualification" class="nav__link">Formação</a>
+            <li>
+              <a
+                href="#certs"
+                class="nav__link"
+                data-pt="Certificações"
+                data-en="Certs"
+                >Certificações</a
+              >
+            </li>
+            <li>
+              <a
+                href="#qualification"
+                class="nav__link"
+                data-pt="Formação"
+                data-en="Education"
+                >Formação</a
+              >
             </li>
           </ul>
-          <i class="uil uil-times nav__close" id="nav-close"></i>
+          <button class="nav__close" id="nav-close" aria-label="Fechar menu">
+            <i class="uil uil-times"></i>
+          </button>
         </div>
 
         <div class="nav__btns">
-          <i class="uil uil-moon change-theme" id="theme-button"></i>
-          <div class="nav__toggle" id="nav-toggle">
+          <!-- Language toggle -->
+          <button
+            class="lang-toggle"
+            id="lang-toggle"
+            aria-label="Alternar idioma"
+            title="Toggle language"
+          >
+            <span class="lang-toggle__label" id="lang-label">EN</span>
+          </button>
+          <!-- Theme toggle -->
+          <button
+            class="theme-toggle"
+            id="theme-button"
+            aria-label="Alternar tema"
+          >
+            <i class="uil uil-moon" id="theme-icon"></i>
+          </button>
+          <!-- Mobile toggle -->
+          <button
+            class="nav__toggle"
+            id="nav-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+          >
             <i class="uil uil-bars"></i>
-          </div>
+          </button>
         </div>
       </nav>
     </header>
 
     <!--==================== MAIN ====================-->
-    <main class="main">
+    <main id="main-content">
       <!--==================== HOME ====================-->
-      <section class="home section" id="home">
+      <section class="home section" id="home" aria-label="Apresentação">
         <div class="home__container container">
           <div class="home__content">
-            <div class="home__social">
+            <div class="home__social" role="list" aria-label="Redes sociais">
               <a
                 href="https://www.linkedin.com/in/kobama-mikael/"
                 target="_blank"
+                rel="noopener"
                 class="home__social-icon"
-              >
-                <i class="uil uil-linkedin-alt"></i>
-              </a>
+                aria-label="LinkedIn"
+                role="listitem"
+                ><i class="uil uil-linkedin-alt"></i
+              ></a>
               <a
                 href="https://github.com/Mikael-Kobama"
                 target="_blank"
+                rel="noopener"
                 class="home__social-icon"
-              >
-                <i class="uil uil-github-alt"></i>
-              </a>
+                aria-label="GitHub"
+                role="listitem"
+                ><i class="uil uil-github-alt"></i
+              ></a>
               <a
-                href="/cdn-cgi/l/email-protection#a9c2c6cbc8c4c887c4c0c2c8ccc5e9cec4c8c0c587cac6c4"
-                target="_blank"
+                href="mailto:kobama.mikael@gmail.com"
                 class="home__social-icon"
-              >
-                <i class="uil uil-envelope"></i>
-              </a>
+                aria-label="E-mail"
+                role="listitem"
+                ><i class="uil uil-envelope"></i
+              ></a>
               <a
-                href="tel:(11)95109-5489"
-                target="_blank"
+                href="tel:+5511951095489"
                 class="home__social-icon"
-              >
-                <i class="uil uil-phone-alt"></i>
-              </a>
+                aria-label="Telefone"
+                role="listitem"
+                ><i class="uil uil-phone-alt"></i
+              ></a>
             </div>
 
             <div class="home__img-wrap">
+              <div class="home__img-ring" aria-hidden="true"></div>
               <img
                 class="home__blob-img"
                 src="./assets/img/perfil.jpg"
-                alt="Mikael Kobama"
+                alt="Foto de Mikael Kobama, Desenvolvedor Full Stack"
               />
             </div>
 
             <div class="home__data">
-              <div class="home__badge">
-                <span class="home__badge-dot"></span>
-                Disponível para oportunidades
+              <div class="home__badge" role="status">
+                <span class="home__badge-dot" aria-hidden="true"></span>
+                <span
+                  data-pt="Disponível para oportunidades"
+                  data-en="Open to opportunities"
+                  >Disponível para oportunidades</span
+                >
               </div>
               <h1 class="home__title">
-                Olá, eu sou<br /><span>Mikael Kobama</span>
+                <span data-pt="Olá, eu sou" data-en="Hi, I'm">Olá, eu sou</span
+                ><br />
+                <span class="home__title-name">Mikael Kobama</span>
               </h1>
-              <h3 class="home__subtitle">Desenvolvedor Full Stack Júnior</h3>
-              <p class="home__description">
-                Transformando ideias em soluções web com foco em usabilidade,
-                performance e integração de tecnologias modernas.
+              <h2
+                class="home__subtitle"
+                data-pt="Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
+                data-en="Junior Full Stack Developer | AWS | React | Node.js"
+              >
+                Desenvolvedor Full Stack Júnior | AWS | React | Node.js
+              </h2>
+              <p
+                class="home__description"
+                data-pt="Transformando ideias em soluções web escaláveis — com foco em usabilidade, performance e Cloud AWS."
+                data-en="Turning ideas into scalable web solutions — focused on usability, performance and AWS Cloud."
+              >
+                Transformando ideias em soluções web escaláveis — com foco em
+                usabilidade, performance e Cloud AWS.
               </p>
               <div class="home__actions">
-                <a
-                  href="/assets/pdf/mikael-kobama-fullstack-jr.pdf"
-                  download
-                  class="button button--flex"
-                >
-                  Baixar Currículo
-                  <i class="uil uil-download-alt button__icon"></i>
-                </a>
-                <a href="#about" class="button button--outline button--flex">
-                  Sobre mim <i class="uil uil-arrow-down button__icon"></i>
+                <div class="home__cv-group">
+                  <a
+                    href="./assets/pdf/mikael-kobama-cv.pdf"
+                    download
+                    class="button button--primary button--flex"
+                    aria-label="Baixar currículo em português"
+                  >
+                    <i
+                      class="uil uil-download-alt button__icon"
+                      aria-hidden="true"
+                    ></i>
+                    <span data-pt="Currículo PT" data-en="Resume PT"
+                      >Currículo PT</span
+                    >
+                  </a>
+                  <a
+                    href="./assets/pdf/mikael-kobama-cv-en.pdf"
+                    download
+                    class="button button--outline button--flex"
+                    aria-label="Download resume in English"
+                  >
+                    <i
+                      class="uil uil-download-alt button__icon"
+                      aria-hidden="true"
+                    ></i>
+                    <span data-pt="Currículo EN" data-en="Resume EN"
+                      >Currículo EN</span
+                    >
+                  </a>
+                </div>
+                <a href="#about" class="button button--ghost button--flex">
+                  <span data-pt="Sobre mim" data-en="About me">Sobre mim</span>
+                  <i
+                    class="uil uil-arrow-down button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="home__scroll">
-            <a href="#about" class="home__scroll-button button--flex">
+          <div class="home__scroll" aria-hidden="true">
+            <a
+              href="#about"
+              class="home__scroll-button button--flex"
+              tabindex="-1"
+            >
               <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scroll-name">Role para baixo</span>
+              <span
+                class="home__scroll-name"
+                data-pt="Role para baixo"
+                data-en="Scroll down"
+                >Role para baixo</span
+              >
               <i class="uil uil-arrow-down"></i>
             </a>
           </div>
@@ -150,100 +278,205 @@
       </section>
 
       <!--==================== ABOUT ====================-->
-      <section class="about section" id="about">
+      <section class="about section" id="about" aria-labelledby="about-title">
         <div class="container">
-          <span class="section__tag">Sobre Mim</span>
-          <h2 class="section__title">Quem sou eu</h2>
+          <span class="section__tag" data-pt="Sobre Mim" data-en="About Me"
+            >Sobre Mim</span
+          >
+          <h2
+            class="section__title"
+            id="about-title"
+            data-pt="Quem sou eu"
+            data-en="Who I am"
+          >
+            Quem sou eu
+          </h2>
 
           <div class="about__container grid">
-            <div class="about__img-wrap">
+            <div class="about__img-wrap fade-up">
               <img
                 src="./assets/img/description.jpg"
-                alt="Mikael Kobama"
+                alt="Mikael Kobama trabalhando"
                 class="about__img"
               />
+              <div class="about__img-badge" aria-hidden="true">
+                <i class="uil uil-aws"></i>
+                <span>AWS Certified</span>
+              </div>
             </div>
-            <div class="about__data">
-              <p class="about__description">
-                Desenvolvedor Full Stack em formação, com sólidos conhecimentos
-                em JavaScript, TypeScript, React, Node.js e fundamentos de Data
-                Science. Foco em criar soluções funcionais e acessíveis para o
-                mundo real.
+            <div class="about__data fade-up">
+              <p
+                class="about__description"
+                data-pt="Desenvolvedor Full Stack com bacharelado em Sistemas de Informação, experiência prática com React.js, Node.js, TypeScript e Cloud AWS. Certificado como AWS Developer Associate e Cloud Practitioner, com inglês avançado (C1 – CEFR). Apaixonado por arquiteturas escaláveis, Clean Code e soluções que impactam o mundo real."
+                data-en="Full Stack Developer with a Bachelor's in Information Systems and hands-on experience with React.js, Node.js, TypeScript, and AWS Cloud. AWS Certified Developer Associate & Cloud Practitioner. Advanced English (C1 – CEFR). Passionate about scalable architectures, Clean Code, and real-world impact."
+              >
+                Desenvolvedor Full Stack com bacharelado em Sistemas de
+                Informação, experiência prática com React.js, Node.js,
+                TypeScript e Cloud AWS. Certificado como AWS Developer Associate
+                e Cloud Practitioner, com inglês avançado (C1 – CEFR).
+                Apaixonado por arquiteturas escaláveis, Clean Code e soluções
+                que impactam o mundo real.
               </p>
+
               <div class="about__info">
                 <div class="about__stat">
-                  <span class="about__info-title">+1</span>
-                  <span class="about__info-name"
-                    >Ano de <br />
-                    estudo prático</span
+                  <span class="about__info-title">+4</span>
+                  <span
+                    class="about__info-name"
+                    data-pt="Anos de estudo prático"
+                    data-en="Years of practical study"
+                    >Anos de estudo prático</span
                   >
                 </div>
                 <div class="about__stat">
-                  <span class="about__info-title">+20</span>
-                  <span class="about__info-name"
-                    >Projetos <br />
-                    concluídos</span
+                  <span class="about__info-title">+25</span>
+                  <span
+                    class="about__info-name"
+                    data-pt="Projetos concluídos"
+                    data-en="Projects completed"
+                    >Projetos concluídos</span
                   >
                 </div>
                 <div class="about__stat">
-                  <span class="about__info-title">+3</span>
-                  <span class="about__info-name"
-                    >Produtos <br />
-                    demonstráveis</span
+                  <span class="about__info-title">7</span>
+                  <span
+                    class="about__info-name"
+                    data-pt="Certificações"
+                    data-en="Certifications"
+                    >Certificações</span
+                  >
+                </div>
+                <div class="about__stat">
+                  <span class="about__info-title">C1</span>
+                  <span
+                    class="about__info-name"
+                    data-pt="Inglês (CEFR)"
+                    data-en="English (CEFR)"
+                    >Inglês (CEFR)</span
                   >
                 </div>
               </div>
-              <div class="about__buttons">
-                <a
-                  href="/cdn-cgi/l/email-protection#a0cbcfc2c1cdc18ecdc9cbc1c5cce0c7cdc1c9cc8ec3cfcd"
-                  class="button button--flex"
+
+              <div class="about__languages">
+                <span class="about__lang-tag"
+                  ><i class="uil uil-comment-alt" aria-hidden="true"></i>
+                  <span data-pt="Português Nativo" data-en="Native Portuguese"
+                    >Português Nativo</span
+                  ></span
                 >
-                  Fale comigo <i class="uil uil-message button__icon"></i>
-                </a>
+                <span class="about__lang-tag about__lang-tag--accent"
+                  ><i class="uil uil-globe" aria-hidden="true"></i>
+                  <span data-pt="Inglês C1" data-en="English C1"
+                    >Inglês C1</span
+                  ></span
+                >
+                <span class="about__lang-tag"
+                  ><i class="uil uil-globe" aria-hidden="true"></i>
+                  <span data-pt="Espanhol A2" data-en="Spanish A2"
+                    >Espanhol A2</span
+                  ></span
+                >
               </div>
+
+              <a
+                href="mailto:kobama.mikael@gmail.com"
+                class="button button--primary button--flex"
+              >
+                <span data-pt="Fale comigo" data-en="Get in touch"
+                  >Fale comigo</span
+                >
+                <i class="uil uil-message button__icon" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       <!--==================== SKILLS ====================-->
-      <section class="skills section" id="skills">
+      <section
+        class="skills section"
+        id="skills"
+        aria-labelledby="skills-title"
+      >
         <div class="container">
-          <span class="section__tag">Habilidades</span>
-          <h2 class="section__title">Meu nível técnico</h2>
+          <span class="section__tag" data-pt="Habilidades" data-en="Skills"
+            >Habilidades</span
+          >
+          <h2
+            class="section__title"
+            id="skills-title"
+            data-pt="Meu nível técnico"
+            data-en="My technical level"
+          >
+            Meu nível técnico
+          </h2>
 
           <div class="skills__container grid">
-            <!--==================== SKILLS 1 ====================-->
+            <!-- FRONTEND -->
             <div class="skills__content skills__open">
-              <div class="skills__header">
-                <div class="skills__icon-wrap">
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="true"
+                aria-controls="skill-list-frontend"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
                   <i class="uil uil-brackets-curly skills__icon"></i>
                 </div>
                 <div>
-                  <h3 class="skills__title">Frontend</h3>
-                  <span class="skills__subtitle"
-                    >Desenvolvimento de interfaces</span
+                  <h3
+                    class="skills__title"
+                    data-pt="Frontend"
+                    data-en="Frontend"
+                  >
+                    Frontend
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="Interfaces & UI"
+                    data-en="Interfaces & UI"
+                    >Interfaces & UI</span
                   >
                 </div>
-                <i class="uil uil-angle-down skills__arrow"></i>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
               </div>
-              <div class="skills__list grid">
+              <div class="skills__list grid" id="skill-list-frontend">
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">HTML</h3>
+                    <h3 class="skills__name">HTML5</h3>
                     <span class="skills__number">90%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__html"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 90%"
+                      role="progressbar"
+                      aria-valuenow="90"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="HTML5 90%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">CSS</h3>
+                    <h3 class="skills__name">CSS3</h3>
                     <span class="skills__number">80%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__css"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 80%"
+                      role="progressbar"
+                      aria-valuenow="80"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="CSS3 80%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
@@ -252,95 +485,425 @@
                     <span class="skills__number">82%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__js"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">React JS</h3>
-                    <span class="skills__number">75%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__react"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 82%"
+                      role="progressbar"
+                      aria-valuenow="82"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="JavaScript 82%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
                     <h3 class="skills__name">TypeScript</h3>
-                    <span class="skills__number">65%</span>
+                    <span class="skills__number">72%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__type"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 72%"
+                      role="progressbar"
+                      aria-valuenow="72"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="TypeScript 72%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">React.js</h3>
+                    <span class="skills__number">78%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 78%"
+                      role="progressbar"
+                      aria-valuenow="78"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="React.js 78%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Next.js</h3>
+                    <span class="skills__number">70%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 70%"
+                      role="progressbar"
+                      aria-valuenow="70"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Next.js 70%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
                     <h3 class="skills__name">Tailwind CSS</h3>
-                    <span class="skills__number">70%</span>
+                    <span class="skills__number">75%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__tailwind"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 75%"
+                      role="progressbar"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Tailwind CSS 75%"
+                    ></span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!--==================== SKILLS 2 ====================-->
+            <!-- BACKEND -->
             <div class="skills__content skills__close">
-              <div class="skills__header">
-                <div class="skills__icon-wrap">
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="skill-list-backend"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
                   <i class="uil uil-server skills__icon"></i>
                 </div>
                 <div>
-                  <h3 class="skills__title">Backend & Cloud</h3>
-                  <span class="skills__subtitle">APIs e infraestrutura</span>
+                  <h3 class="skills__title" data-pt="Backend" data-en="Backend">
+                    Backend
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="APIs & Serviços"
+                    data-en="APIs & Services"
+                    >APIs & Serviços</span
+                  >
                 </div>
-                <i class="uil uil-angle-down skills__arrow"></i>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
               </div>
-              <div class="skills__list grid">
+              <div class="skills__list grid" id="skill-list-backend">
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Node JS</h3>
-                    <span class="skills__number">70%</span>
+                    <h3 class="skills__name">Node.js</h3>
+                    <span class="skills__number">75%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__node"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 75%"
+                      role="progressbar"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Node.js 75%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Spring Boot</h3>
-                    <span class="skills__number">53%</span>
+                    <h3 class="skills__name">Java / Spring Boot</h3>
+                    <span class="skills__number">55%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__spring"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 55%"
+                      role="progressbar"
+                      aria-valuenow="55"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Java Spring Boot 55%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
                     <h3 class="skills__name">Python</h3>
-                    <span class="skills__number">48%</span>
+                    <span class="skills__number">50%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 50%"
+                      role="progressbar"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Python 50%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">AWS</h3>
-                    <span class="skills__number">74%</span>
+                    <h3 class="skills__name">REST APIs</h3>
+                    <span class="skills__number">82%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__aws"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 82%"
+                      role="progressbar"
+                      aria-valuenow="82"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="REST APIs 82%"
+                    ></span>
                   </div>
                 </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">GraphQL</h3>
+                    <span class="skills__number">40%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 40%"
+                      role="progressbar"
+                      aria-valuenow="40"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="GraphQL 40%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Redis</h3>
+                    <span class="skills__number">65%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 65%"
+                      role="progressbar"
+                      aria-valuenow="65"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Redis 65%"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CLOUD -->
+            <div class="skills__content skills__close">
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="skill-list-cloud"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
+                  <i class="uil uil-cloud skills__icon"></i>
+                </div>
+                <div>
+                  <h3
+                    class="skills__title"
+                    data-pt="Cloud & DevOps"
+                    data-en="Cloud & DevOps"
+                  >
+                    Cloud & DevOps
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="Infraestrutura & Deploy"
+                    data-en="Infrastructure & Deploy"
+                    >Infraestrutura & Deploy</span
+                  >
+                </div>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div class="skills__list grid" id="skill-list-cloud">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">AWS (Lambda, S3, EC2)</h3>
+                    <span class="skills__number">78%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 78%"
+                      role="progressbar"
+                      aria-valuenow="78"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="AWS 78%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">API Gateway / IAM</h3>
+                    <span class="skills__number">72%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 72%"
+                      role="progressbar"
+                      aria-valuenow="72"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="API Gateway 72%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Serverless / AWS SAM</h3>
+                    <span class="skills__number">65%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 65%"
+                      role="progressbar"
+                      aria-valuenow="65"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Serverless 65%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Docker</h3>
+                    <span class="skills__number">65%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 65%"
+                      role="progressbar"
+                      aria-valuenow="65"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Docker 65%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">CI/CD / GitHub Actions</h3>
+                    <span class="skills__number">60%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 60%"
+                      role="progressbar"
+                      aria-valuenow="60"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="CI/CD 60%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Terraform</h3>
+                    <span class="skills__number">35%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 35%"
+                      role="progressbar"
+                      aria-valuenow="35"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Terraform 35%"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DATABASES -->
+            <div class="skills__content skills__close">
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="skill-list-db"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
+                  <i class="uil uil-database skills__icon"></i>
+                </div>
+                <div>
+                  <h3
+                    class="skills__title"
+                    data-pt="Banco de Dados"
+                    data-en="Databases"
+                  >
+                    Banco de Dados
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="SQL & NoSQL"
+                    data-en="SQL & NoSQL"
+                    >SQL & NoSQL</span
+                  >
+                </div>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div class="skills__list grid" id="skill-list-db">
                 <div class="skills__data">
                   <div class="skills__titles">
                     <h3 class="skills__name">PostgreSQL</h3>
-                    <span class="skills__number">68%</span>
+                    <span class="skills__number">70%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__post"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 70%"
+                      role="progressbar"
+                      aria-valuenow="70"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="PostgreSQL 70%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">MySQL</h3>
+                    <span class="skills__number">65%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 65%"
+                      role="progressbar"
+                      aria-valuenow="65"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="MySQL 65%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
@@ -349,79 +912,304 @@
                     <span class="skills__number">76%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__mongo"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 76%"
+                      role="progressbar"
+                      aria-valuenow="76"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="MongoDB 76%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">DynamoDB (AWS)</h3>
+                    <span class="skills__number">68%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 68%"
+                      role="progressbar"
+                      aria-valuenow="68"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="DynamoDB 68%"
+                    ></span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!--==================== SKILLS 3 ====================-->
+            <!-- INTERPERSONAL -->
             <div class="skills__content skills__close">
-              <div class="skills__header">
-                <div class="skills__icon-wrap">
-                  <i class="uil uil-code-branch skills__icon"></i>
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="skill-list-soft"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
+                  <i class="uil uil-users-alt skills__icon"></i>
                 </div>
                 <div>
-                  <h3 class="skills__title">Ferramentas & Soft Skills</h3>
-                  <span class="skills__subtitle"
-                    >Metodologias e comportamento</span
+                  <h3
+                    class="skills__title"
+                    data-pt="Interpessoal"
+                    data-en="Interpersonal"
+                  >
+                    Interpessoal
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="Soft Skills & Equipe"
+                    data-en="Soft Skills & Teamwork"
+                    >Soft Skills & Equipe</span
                   >
                 </div>
-                <i class="uil uil-angle-down skills__arrow"></i>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
               </div>
-              <div class="skills__list grid">
+              <div class="skills__list grid" id="skill-list-soft">
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Scrum</h3>
+                    <h3
+                      class="skills__name"
+                      data-pt="Trabalho em Equipe"
+                      data-en="Teamwork"
+                    >
+                      Trabalho em Equipe
+                    </h3>
+                    <span class="skills__number">95%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 95%"
+                      role="progressbar"
+                      aria-valuenow="95"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Teamwork 95%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3
+                      class="skills__name"
+                      data-pt="Comunicação"
+                      data-en="Communication"
+                    >
+                      Comunicação
+                    </h3>
                     <span class="skills__number">90%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__scrum"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 90%"
+                      role="progressbar"
+                      aria-valuenow="90"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Comunicação 90%"
+                    ></span>
                   </div>
                 </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3
+                      class="skills__name"
+                      data-pt="Proatividade"
+                      data-en="Proactivity"
+                    >
+                      Proatividade
+                    </h3>
+                    <span class="skills__number">88%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 88%"
+                      role="progressbar"
+                      aria-valuenow="88"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Proatividade 88%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Scrum / Agile</h3>
+                    <span class="skills__number">90%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 90%"
+                      role="progressbar"
+                      aria-valuenow="90"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Scrum 90%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3
+                      class="skills__name"
+                      data-pt="Resolução de Problemas"
+                      data-en="Problem Solving"
+                    >
+                      Resolução de Problemas
+                    </h3>
+                    <span class="skills__number">85%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 85%"
+                      role="progressbar"
+                      aria-valuenow="85"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Resolução de Problemas 85%"
+                    ></span>
+                  </div>
+                </div>
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3
+                      class="skills__name"
+                      data-pt="Aprendizado Contínuo"
+                      data-en="Continuous Learning"
+                    >
+                      Aprendizado Contínuo
+                    </h3>
+                    <span class="skills__number">95%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <span
+                      class="skills__percentage"
+                      style="width: 95%"
+                      role="progressbar"
+                      aria-valuenow="95"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Aprendizado Contínuo 95%"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOOLS -->
+            <div class="skills__content skills__close">
+              <div
+                class="skills__header"
+                role="button"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="skill-list-tools"
+              >
+                <div class="skills__icon-wrap" aria-hidden="true">
+                  <i class="uil uil-wrench skills__icon"></i>
+                </div>
+                <div>
+                  <h3
+                    class="skills__title"
+                    data-pt="Ferramentas"
+                    data-en="Tools"
+                  >
+                    Ferramentas
+                  </h3>
+                  <span
+                    class="skills__subtitle"
+                    data-pt="Git, Práticas & ERP"
+                    data-en="Git, Practices & ERP"
+                    >Git, Práticas & ERP</span
+                  >
+                </div>
+                <i
+                  class="uil uil-angle-down skills__arrow"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div class="skills__list grid" id="skill-list-tools">
                 <div class="skills__data">
                   <div class="skills__titles">
                     <h3 class="skills__name">Git / GitHub</h3>
                     <span class="skills__number">88%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__git"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 88%"
+                      role="progressbar"
+                      aria-valuenow="88"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Git 88%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Docker</h3>
-                    <span class="skills__number">60%</span>
+                    <h3 class="skills__name">Clean Code / SOLID</h3>
+                    <span class="skills__number">80%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__docker"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 80%"
+                      role="progressbar"
+                      aria-valuenow="80"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="Clean Code 80%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Comunicação</h3>
-                    <span class="skills__number">90%</span>
+                    <h3 class="skills__name">JWT / Auth</h3>
+                    <span class="skills__number">78%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__com"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 78%"
+                      role="progressbar"
+                      aria-valuenow="78"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="JWT 78%"
+                    ></span>
                   </div>
                 </div>
                 <div class="skills__data">
                   <div class="skills__titles">
-                    <h3 class="skills__name">Proatividade</h3>
-                    <span class="skills__number">84%</span>
+                    <h3 class="skills__name">ABAP SAP</h3>
+                    <span class="skills__number">30%</span>
                   </div>
                   <div class="skills__bar">
-                    <span class="skills__percentage skills__pro"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Autonomia</h3>
-                    <span class="skills__number">92%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__auto"></span>
+                    <span
+                      class="skills__percentage"
+                      style="width: 30%"
+                      role="progressbar"
+                      aria-valuenow="30"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="ABAP SAP 30%"
+                    ></span>
                   </div>
                 </div>
               </div>
@@ -431,246 +1219,704 @@
       </section>
 
       <!--==================== PORTFOLIO ====================-->
-      <section class="portfolio section" id="portfolio">
+      <section
+        class="portfolio section"
+        id="portfolio"
+        aria-labelledby="portfolio-title"
+      >
         <div class="container">
-          <span class="section__tag">Portfolio</span>
-          <h2 class="section__title">Projetos recentes</h2>
+          <span class="section__tag" data-pt="Portfolio" data-en="Portfolio"
+            >Portfolio</span
+          >
+          <h2
+            class="section__title"
+            id="portfolio-title"
+            data-pt="Projetos recentes"
+            data-en="Recent projects"
+          >
+            Projetos recentes
+          </h2>
 
-          <div class="portfolio__filters">
-            <button class="portfolio__filter-btn active" data-filter="all">
+          <div
+            class="portfolio__filters"
+            role="group"
+            aria-label="Filtrar projetos"
+          >
+            <button
+              class="portfolio__filter-btn active"
+              data-filter="all"
+              data-pt="Todos"
+              data-en="All"
+            >
               Todos
             </button>
-            <button class="portfolio__filter-btn" data-filter="frontend">
+            <button
+              class="portfolio__filter-btn"
+              data-filter="frontend"
+              data-pt="Front-end"
+              data-en="Front-end"
+            >
               Front-end
             </button>
-            <button class="portfolio__filter-btn" data-filter="backend">
+            <button
+              class="portfolio__filter-btn"
+              data-filter="fullstack"
+              data-pt="Full Stack"
+              data-en="Full Stack"
+            >
+              Full Stack
+            </button>
+            <button
+              class="portfolio__filter-btn"
+              data-filter="backend"
+              data-pt="Back-end"
+              data-en="Back-end"
+            >
               Back-end
             </button>
           </div>
 
-          <div class="portfolio__grid">
-            <div class="portfolio__card" data-type="frontend">
+          <div class="portfolio__grid" role="list">
+            <!-- GTA VI -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="frontend"
+              role="listitem"
+            >
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/gta-homepage.png"
+                  alt="GTA VI Landing Page — projeto frontend inspirado no marketing do jogo"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://gta-landing-seven.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Front-end</span>
+                <h3
+                  class="portfolio__title"
+                  data-pt="GTA VI Landing Page"
+                  data-en="GTA VI Landing Page"
+                >
+                  GTA VI Landing Page
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Landing page inspirada no marketing oficial do GTA VI — animações cinematográficas, design imersivo e alta fidelidade visual."
+                  data-en="Landing page inspired by GTA VI's official marketing — cinematic animations, immersive design, high visual fidelity."
+                >
+                  Landing page inspirada no marketing oficial do GTA VI —
+                  animações cinematográficas, design imersivo e alta fidelidade
+                  visual.
+                </p>
+                <div class="portfolio__tags">
+                  <span>Next.js</span><span>CSS</span><span>Animation</span>
+                </div>
+                <a
+                  href="https://gta-landing-seven.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                  aria-label="Ver projeto GTA VI Landing Page"
+                >
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- NIKE -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="frontend"
+              role="listitem"
+            >
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/nike-page.png"
+                  alt="Nike Landing Page — landing page inspirada na Nike"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://nike-homepage-rosy.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Front-end</span>
+                <h3
+                  class="portfolio__title"
+                  data-pt="Nike Landing Page"
+                  data-en="Nike Landing Page"
+                >
+                  Nike Landing Page
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Landing page inspirada no design da Nike — coleção de tênis, galeria de produtos, stats e navegação fluida."
+                  data-en="Landing page inspired by Nike's design system — shoe collection, product gallery, stats and smooth navigation."
+                >
+                  Landing page inspirada no design da Nike — coleção de tênis,
+                  galeria de produtos, stats e navegação fluida.
+                </p>
+                <div class="portfolio__tags">
+                  <span>React.js</span><span>Tailwind</span><span>UI/UX</span>
+                </div>
+                <a
+                  href="https://nike-homepage-rosy.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                  aria-label="Ver projeto Nike Landing Page"
+                >
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- TRAVEL -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="frontend"
+              role="listitem"
+            >
               <div class="portfolio__img-wrap">
                 <img
                   src="./assets/img/project-travel.png"
                   alt="Travel App"
                   class="portfolio__img"
+                  loading="lazy"
                 />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://award-winning-website-mauve.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
               </div>
               <div class="portfolio__data">
                 <span class="portfolio__type">Front-end</span>
                 <h3 class="portfolio__title">Travel App</h3>
-                <p class="portfolio__description">
-                  Aplicação web com Next.js e Tailwind CSS para descoberta de
-                  destinos de viagem, com UX imersiva e design moderno.
+                <p
+                  class="portfolio__description"
+                  data-pt="Aplicação para descoberta de destinos de viagem com UX imersiva, animações fluidas e design moderno."
+                  data-en="Travel destination discovery app with immersive UX, fluid animations, and modern design."
+                >
+                  Aplicação para descoberta de destinos de viagem com UX
+                  imersiva, animações fluidas e design moderno.
                 </p>
+                <div class="portfolio__tags">
+                  <span>Next.js</span><span>Tailwind</span>
+                </div>
                 <a
                   href="https://award-winning-website-mauve.vercel.app/"
                   target="_blank"
+                  rel="noopener"
                   class="portfolio__button button--flex"
                 >
-                  Ver projeto <i class="uil uil-arrow-right button__icon"></i>
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="portfolio__card" data-type="frontend">
-              <div class="portfolio__img-wrap">
-                <img
-                  src="./assets/img/project-winning.png"
-                  alt="Award Winning Site"
-                  class="portfolio__img"
-                />
-              </div>
-              <div class="portfolio__data">
-                <span class="portfolio__type">Front-end</span>
-                <h3 class="portfolio__title">Award Winning Site</h3>
-                <p class="portfolio__description">
-                  Simulação de website de alto impacto visual, construído com
-                  tecnologias modernas e foco em experiência do usuário.
-                </p>
-                <a
-                  href="https://award-winning-website-mauve.vercel.app/"
-                  target="_blank"
-                  class="portfolio__button button--flex"
-                >
-                  Ver projeto <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="portfolio__card" data-type="frontend">
+            <!-- BRAINWAVE -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="frontend"
+              role="listitem"
+            >
               <div class="portfolio__img-wrap">
                 <img
                   src="./assets/img/project-brainwave.png"
                   alt="Brainwave Page"
                   class="portfolio__img"
+                  loading="lazy"
                 />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://brawinwave-web.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
               </div>
               <div class="portfolio__data">
                 <span class="portfolio__type">Front-end</span>
                 <h3 class="portfolio__title">Brainwave Page</h3>
-                <p class="portfolio__description">
-                  Site moderno com React.js e Tailwind CSS, design elegante,
-                  animações fluidas e foco em UI/UX contemporâneo.
+                <p
+                  class="portfolio__description"
+                  data-pt="Site moderno com React.js e Tailwind CSS, animações fluidas e foco em UI/UX contemporâneo."
+                  data-en="Modern site with React.js and Tailwind CSS, fluid animations and contemporary UI/UX focus."
+                >
+                  Site moderno com React.js e Tailwind CSS, animações fluidas e
+                  foco em UI/UX contemporâneo.
                 </p>
+                <div class="portfolio__tags">
+                  <span>React.js</span><span>Tailwind</span>
+                </div>
                 <a
                   href="https://brawinwave-web.vercel.app/"
                   target="_blank"
+                  rel="noopener"
                   class="portfolio__button button--flex"
                 >
-                  Ver projeto <i class="uil uil-arrow-right button__icon"></i>
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="portfolio__card" data-type="frontend">
+            <!-- YOOM -->
+            <article
+              class="portfolio__card portfolio__card--featured fade-up"
+              data-type="fullstack"
+              role="listitem"
+            >
+              <div
+                class="portfolio__featured-badge"
+                aria-label="Projeto em destaque"
+              >
+                <i class="uil uil-star" aria-hidden="true"></i>
+                <span data-pt="Destaque" data-en="Featured">Destaque</span>
+              </div>
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/zoom-clone.png"
+                  alt="Yoom — Clone funcional do Zoom com autenticação e salas de reunião"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://zoom-clone-delta-pink.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Full Stack</span>
+                <h3 class="portfolio__title">Yoom — Zoom Clone</h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Clone funcional do Zoom com autenticação OAuth (Clerk), salas de reunião em tempo real e dashboard completo."
+                  data-en="Functional Zoom clone with OAuth authentication (Clerk), real-time meeting rooms and full dashboard."
+                >
+                  Clone funcional do Zoom com autenticação OAuth (Clerk), salas
+                  de reunião em tempo real e dashboard completo.
+                </p>
+                <div class="portfolio__tags">
+                  <span>Next.js</span><span>Clerk</span><span>TypeScript</span
+                  ><span>Full Stack</span>
+                </div>
+                <a
+                  href="https://zoom-clone-delta-pink.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                >
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- PETSHOP -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="frontend"
+              role="listitem"
+            >
               <div class="portfolio__img-wrap">
                 <img
                   src="./assets/img/project-petshop.png"
                   alt="Petshop Page"
                   class="portfolio__img"
+                  loading="lazy"
                 />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://petshop-page-nextjs.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
               </div>
               <div class="portfolio__data">
                 <span class="portfolio__type">Front-end</span>
                 <h3 class="portfolio__title">Petshop Page</h3>
-                <p class="portfolio__description">
-                  Aplicação com Next.js e Tailwind CSS 3. Design limpo, rápido e
-                  navegação fluida para o setor pet.
+                <p
+                  class="portfolio__description"
+                  data-pt="Vitrine digital responsiva com Next.js e Tailwind CSS para o setor pet. Design limpo e navegação fluida."
+                  data-en="Responsive digital storefront with Next.js and Tailwind CSS for the pet sector."
+                >
+                  Vitrine digital responsiva com Next.js e Tailwind CSS para o
+                  setor pet. Design limpo e navegação fluida.
                 </p>
+                <div class="portfolio__tags">
+                  <span>Next.js</span><span>Tailwind</span>
+                </div>
                 <a
                   href="https://petshop-page-nextjs.vercel.app/"
                   target="_blank"
+                  rel="noopener"
                   class="portfolio__button button--flex"
                 >
-                  Ver projeto <i class="uil uil-arrow-right button__icon"></i>
+                  <span data-pt="Ver projeto" data-en="View project"
+                    >Ver projeto</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="portfolio__card" data-type="backend">
+            <!-- POLYGLOT -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="backend"
+              role="listitem"
+            >
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/edge-cases.png"
+                  alt="Polyglot Code Challenges — repositório de desafios em múltiplas linguagens"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://github.com/Mikael-Kobama/Edge-cases"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Back-end</span>
+                <h3 class="portfolio__title">Polyglot Code Challenges</h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Repositório central de desafios — algoritmos, estruturas de dados e lógica em Python, TypeScript e Java. Demonstra evolução técnica contínua."
+                  data-en="Central challenge repository — algorithms, data structures and logic in Python, TypeScript and Java. Demonstrates continuous technical growth."
+                >
+                  Repositório central de desafios — algoritmos, estruturas de
+                  dados e lógica em Python, TypeScript e Java. Demonstra
+                  evolução técnica contínua.
+                </p>
+                <div class="portfolio__tags">
+                  <span>Python</span><span>TypeScript</span><span>Java</span
+                  ><span>Algorithms</span>
+                </div>
+                <a
+                  href="https://github.com/Mikael-Kobama/Edge-cases"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                >
+                  <span data-pt="Ver repositório" data-en="View repo"
+                    >Ver repositório</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- URL SHORTENER -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="backend"
+              role="listitem"
+            >
               <div class="portfolio__img-wrap">
                 <img
                   src="./assets/img/project-short.png"
                   alt="Encurtador de URL"
                   class="portfolio__img"
+                  loading="lazy"
                 />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://github.com/Mikael-Kobama/smart-bus-app"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
               </div>
               <div class="portfolio__data">
                 <span class="portfolio__type">Back-end</span>
-                <h3 class="portfolio__title">Encurtador de URL</h3>
-                <p class="portfolio__description">
-                  Projeto full-stack com backend em TypeScript + MongoDB (via
-                  Docker) e frontend que exibe o link encurtado dinamicamente.
+                <h3
+                  class="portfolio__title"
+                  data-pt="Encurtador de URL"
+                  data-en="URL Shortener"
+                >
+                  Encurtador de URL
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Full-stack com TypeScript + MongoDB via Docker. Frontend dinâmico e backend robusto."
+                  data-en="Full-stack with TypeScript + MongoDB via Docker. Dynamic frontend and robust backend."
+                >
+                  Full-stack com TypeScript + MongoDB via Docker. Frontend
+                  dinâmico e backend robusto.
                 </p>
+                <div class="portfolio__tags">
+                  <span>TypeScript</span><span>MongoDB</span><span>Docker</span>
+                </div>
                 <a
                   href="https://github.com/Mikael-Kobama/smart-bus-app"
                   target="_blank"
+                  rel="noopener"
                   class="portfolio__button button--flex"
                 >
-                  Ver código <i class="uil uil-arrow-right button__icon"></i>
+                  <span data-pt="Ver código" data-en="View code"
+                    >Ver código</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="portfolio__card" data-type="backend">
-              <div class="portfolio__img-wrap">
-                <img
-                  src="./assets/img/project-place-service.png"
-                  alt="Challenge API Place"
-                  class="portfolio__img"
-                />
-              </div>
-              <div class="portfolio__data">
-                <span class="portfolio__type">Back-end</span>
-                <h3 class="portfolio__title">Challenge API Place — Spring</h3>
-                <p class="portfolio__description">
-                  API RESTful robusta em Java e Spring Boot focada em boas
-                  práticas, performance e manutenibilidade.
-                </p>
-                <a
-                  href="https://github.com/Mikael-Kobama/challenge-place-service/tree/main"
-                  target="_blank"
-                  class="portfolio__button button--flex"
-                >
-                  Ver código <i class="uil uil-arrow-right button__icon"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="portfolio__card" data-type="backend">
+            <!-- EMAIL SERVICE -->
+            <article
+              class="portfolio__card fade-up"
+              data-type="backend"
+              role="listitem"
+            >
               <div class="portfolio__img-wrap">
                 <img
                   src="./assets/img/project-email.png"
-                  alt="Serviço de Emails"
+                  alt="Serviço de Disparo de Emails"
                   class="portfolio__img"
+                  loading="lazy"
                 />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://github.com/Mikael-Kobama/email-service-backend/tree/main"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
               </div>
               <div class="portfolio__data">
                 <span class="portfolio__type">Back-end</span>
-                <h3 class="portfolio__title">Serviço de Disparo de Emails</h3>
-                <p class="portfolio__description">
-                  Serviço em lote usando Redis como message broker.
-                  Processamento assíncrono com foco em escalabilidade.
+                <h3
+                  class="portfolio__title"
+                  data-pt="Serviço de Emails em Lote"
+                  data-en="Batch Email Service"
+                >
+                  Serviço de Emails em Lote
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Disparo assíncrono com Redis como message broker. Processamento em lote com foco em escalabilidade."
+                  data-en="Async email dispatch with Redis as message broker. Batch processing focused on scalability."
+                >
+                  Disparo assíncrono com Redis como message broker.
+                  Processamento em lote com foco em escalabilidade.
                 </p>
+                <div class="portfolio__tags">
+                  <span>Node.js</span><span>Redis</span><span>Async</span>
+                </div>
                 <a
                   href="https://github.com/Mikael-Kobama/email-service-backend/tree/main"
                   target="_blank"
+                  rel="noopener"
                   class="portfolio__button button--flex"
                 >
-                  Ver código <i class="uil uil-arrow-right button__icon"></i>
+                  <span data-pt="Ver código" data-en="View code"
+                    >Ver código</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
                 </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== CERTIFICATIONS ====================-->
+      <section class="certs section" id="certs" aria-labelledby="certs-title">
+        <div class="container">
+          <span
+            class="section__tag"
+            data-pt="Certificações"
+            data-en="Certifications"
+            >Certificações</span
+          >
+          <h2
+            class="section__title"
+            id="certs-title"
+            data-pt="Conquistas & Credenciais"
+            data-en="Achievements & Credentials"
+          >
+            Conquistas & Credenciais
+          </h2>
+
+          <div class="certs__grid">
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-cloud-computing"></i>
+              </div>
+              <div class="certs__body">
+                <h3 class="certs__title">AWS Certified Developer Associate</h3>
+                <span class="certs__issuer">Amazon Web Services</span>
+                <span class="certs__year">2025</span>
               </div>
             </div>
-
-            <div class="portfolio__card" data-type="backend">
-              <div class="portfolio__img-wrap">
-                <img
-                  src="./assets/img/project-todo.png"
-                  alt="Challenge Spring To-Do List"
-                  class="portfolio__img"
-                />
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-cloud"></i>
               </div>
-              <div class="portfolio__data">
-                <span class="portfolio__type">Back-end</span>
-                <h3 class="portfolio__title">Challenge Spring To-Do List</h3>
-                <p class="portfolio__description">
-                  API REST para gerenciamento de tarefas com boas práticas,
-                  design de arquitetura e Spring Boot.
-                </p>
-                <a
-                  href="https://github.com/Mikael-Kobama/Challenge-spring-todolist"
-                  target="_blank"
-                  class="portfolio__button button--flex"
-                >
-                  Ver código <i class="uil uil-arrow-right button__icon"></i>
-                </a>
+              <div class="certs__body">
+                <h3 class="certs__title">AWS Certified Cloud Practitioner</h3>
+                <span class="certs__issuer">Amazon Web Services</span>
+                <span class="certs__year">2025</span>
               </div>
             </div>
-
-            <div class="portfolio__card" data-type="backend">
-              <div class="portfolio__img-wrap">
-                <img
-                  src="./assets/img/project-jwt.png"
-                  alt="JWT Auth Node.js"
-                  class="portfolio__img"
-                />
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-database"></i>
               </div>
-              <div class="portfolio__data">
-                <span class="portfolio__type">Back-end</span>
-                <h3 class="portfolio__title">Autenticação JWT com Node.js</h3>
-                <p class="portfolio__description">
-                  API simples em Node.js com Express demonstrando autenticação
-                  com JSON Web Tokens de forma clara.
-                </p>
-                <a
-                  href="https://github.com/Mikael-Kobama/JWT"
-                  target="_blank"
-                  class="portfolio__button button--flex"
+              <div class="certs__body">
+                <h3 class="certs__title">
+                  Oracle Cloud Infrastructure Foundations
+                </h3>
+                <span class="certs__issuer">Oracle</span>
+                <span class="certs__year">2025</span>
+              </div>
+            </div>
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-medal"></i>
+              </div>
+              <div class="certs__body">
+                <h3 class="certs__title">
+                  Scrum Master Professional Certificate
+                </h3>
+                <span class="certs__issuer">CertiProf</span>
+                <span class="certs__year">2023</span>
+              </div>
+            </div>
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-award"></i>
+              </div>
+              <div class="certs__body">
+                <h3 class="certs__title">
+                  Scrum Foundation Professional Certificate
+                </h3>
+                <span class="certs__issuer">CertiProf</span>
+                <span class="certs__year">2023</span>
+              </div>
+            </div>
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-robot"></i>
+              </div>
+              <div class="certs__body">
+                <h3
+                  class="certs__title"
+                  data-pt="AWS & Inteligência Artificial — 270h"
+                  data-en="AWS & Artificial Intelligence — 270h"
                 >
-                  Ver código <i class="uil uil-arrow-right button__icon"></i>
-                </a>
+                  AWS & Inteligência Artificial — 270h
+                </h3>
+                <span class="certs__issuer">Escola da Nuvem</span>
+                <span class="certs__year">2025</span>
+              </div>
+            </div>
+            <div class="certs__card fade-up">
+              <div class="certs__icon" aria-hidden="true">
+                <i class="uil uil-code-branch"></i>
+              </div>
+              <div class="certs__body">
+                <h3
+                  class="certs__title"
+                  data-pt="Oracle Next One — Full Stack"
+                  data-en="Oracle Next One — Full Stack"
+                >
+                  Oracle Next One — Full Stack
+                </h3>
+                <span class="certs__issuer">Oracle + Alura</span>
+                <span class="certs__year">2025</span>
               </div>
             </div>
           </div>
@@ -678,72 +1924,124 @@
       </section>
 
       <!--==================== QUALIFICATION ====================-->
-      <section class="qualification section" id="qualification">
+      <section
+        class="qualification section"
+        id="qualification"
+        aria-labelledby="qual-title"
+      >
         <div class="container">
-          <span class="section__tag">Qualificações</span>
-          <h2 class="section__title">Minha Jornada</h2>
+          <span class="section__tag" data-pt="Formação" data-en="Education"
+            >Formação</span
+          >
+          <h2
+            class="section__title"
+            id="qual-title"
+            data-pt="Minha Jornada"
+            data-en="My Journey"
+          >
+            Minha Jornada
+          </h2>
 
-          <div class="qualification__timeline">
-            <div class="qualification__item">
-              <div class="qualification__dot">
+          <div class="qualification__timeline" role="list">
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
                 <i class="uil uil-graduation-cap"></i>
               </div>
               <div class="qualification__body">
-                <h3 class="qualification__title">
-                  Análise e Desenvolvimento de Sistemas
+                <h3
+                  class="qualification__title"
+                  data-pt="Bacharelado em Sistemas de Informação"
+                  data-en="Bachelor's in Information Systems"
+                >
+                  Bacharelado em Sistemas de Informação
                 </h3>
-                <span class="qualification__subtitle">UNINOVE — Brasil</span>
+                <span class="qualification__subtitle"
+                  >UNINOVE — São Paulo, SP</span
+                >
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i> 2021 – 2024
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i> 2021 –
+                  2024
                 </div>
               </div>
             </div>
-
-            <div class="qualification__item">
-              <div class="qualification__dot">
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
                 <i class="uil uil-award"></i>
               </div>
               <div class="qualification__body">
-                <h3 class="qualification__title">Oracle Next Education</h3>
-                <span class="qualification__subtitle"
-                  >Oracle + Alura — Brasil</span
-                >
+                <h3 class="qualification__title">
+                  Oracle Next Education — Full Stack
+                </h3>
+                <span class="qualification__subtitle">Oracle + Alura</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i> Fevereiro 2025 – Em
-                  andamento
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                  <span
+                    data-pt="Fev/2025 – Em andamento"
+                    data-en="Feb/2025 – Ongoing"
+                    >Fev/2025 – Em andamento</span
+                  >
                 </div>
               </div>
             </div>
-
-            <div class="qualification__item">
-              <div class="qualification__dot">
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
                 <i class="uil uil-cloud"></i>
               </div>
               <div class="qualification__body">
-                <h3 class="qualification__title">
-                  Re/Start — Fundamentos em Nuvem AWS + IA
-                </h3>
-                <span class="qualification__subtitle"
-                  >Escola da Nuvem — Brasil</span
+                <h3
+                  class="qualification__title"
+                  data-pt="Re/Start — Nuvem AWS + IA"
+                  data-en="Re/Start — AWS Cloud + AI"
                 >
+                  Re/Start — Nuvem AWS + IA
+                </h3>
+                <span class="qualification__subtitle">Escola da Nuvem</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i> Encerrado em julho de
-                  2025
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                  <span
+                    data-pt="Concluído Jul/2025"
+                    data-en="Completed Jul/2025"
+                    >Concluído Jul/2025</span
+                  >
                 </div>
               </div>
             </div>
-
-            <div class="qualification__item">
-              <div class="qualification__dot">
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
                 <i class="uil uil-server"></i>
               </div>
               <div class="qualification__body">
                 <h3 class="qualification__title">AWS Developer</h3>
-                <span class="qualification__subtitle"
-                  >Escola da Nuvem — Brasil</span
-                >
+                <span class="qualification__subtitle">Escola da Nuvem</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i> Julho 2025 – Outubro 2025
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                  Jul/2025 – Out/2025
+                </div>
+              </div>
+            </div>
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
+                <i class="uil uil-server"></i>
+              </div>
+              <div class="qualification__body">
+                <h3 class="qualification__title">AWS Architect Solutions</h3>
+                <span class="qualification__subtitle">Escola da Nuvem</span>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                  Jan/2026 – Dez/2026
+                </div>
+              </div>
+            </div>
+            <div class="qualification__item fade-up" role="listitem">
+              <div class="qualification__dot" aria-hidden="true">
+                <i class="uil uil-server"></i>
+              </div>
+              <div class="qualification__body">
+                <h3 class="qualification__title">AWS AI Cloud Practitioner</h3>
+                <span class="qualification__subtitle">Escola da Nuvem</span>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                  Maio/2026 – Jun/2026
                 </div>
               </div>
             </div>
@@ -753,56 +2051,89 @@
     </main>
 
     <!--==================== FOOTER ====================-->
-    <footer class="footer">
-      <div class="footer__bg">
-        <div class="footer__content container">
-          <div class="footer__info">
-            <h3 class="footer__title">Mikael Kobama</h3>
-            <p class="footer__tagline">
-              Transformando ideias complexas em soluções funcionais.
+    <footer class="footer" role="contentinfo">
+      <div class="footer__top">
+        <div class="footer__glow" aria-hidden="true"></div>
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__info">
+              <h3 class="footer__title">Mikael Kobama</h3>
+              <p
+                class="footer__tagline"
+                data-pt="Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
+                data-en="Junior Full Stack Developer | AWS | React | Node.js"
+              >
+                Desenvolvedor Full Stack Júnior | AWS | React | Node.js
+              </p>
+            </div>
+            <div class="footer__socials">
+              <a
+                href="https://www.linkedin.com/in/kobama-mikael/"
+                target="_blank"
+                rel="noopener"
+                class="footer__social-icon"
+                aria-label="LinkedIn"
+                ><i class="uil uil-linkedin-alt"></i
+              ></a>
+              <a
+                href="https://github.com/Mikael-Kobama"
+                target="_blank"
+                rel="noopener"
+                class="footer__social-icon"
+                aria-label="GitHub"
+                ><i class="uil uil-github-alt"></i
+              ></a>
+              <a
+                href="mailto:kobama.mikael@gmail.com"
+                class="footer__social-icon"
+                aria-label="Email"
+                ><i class="uil uil-envelope"></i
+              ></a>
+              <a
+                href="tel:+5511951095489"
+                class="footer__social-icon"
+                aria-label="Telefone"
+                ><i class="uil uil-phone-alt"></i
+              ></a>
+            </div>
+          </div>
+          <blockquote class="footer__quote" aria-label="Frase de efeito">
+            <p
+              data-pt="&ldquo;Bons desenvolvedores escrevem código que máquinas entendem. Grandes desenvolvedores escrevem código que pessoas entendem.&rdquo;"
+              data-en="&ldquo;Good developers write code that machines understand. Great developers write code that people understand.&rdquo;"
+            >
+              &ldquo;Bons desenvolvedores escrevem código que máquinas entendem.
+              Grandes desenvolvedores escrevem código que pessoas
+              entendem.&rdquo;
             </p>
-          </div>
-          <div class="footer__socials">
-            <a
-              href="https://www.linkedin.com/in/kobama-mikael/"
-              target="_blank"
-              class="footer__social-icon"
-            >
-              <i class="uil uil-linkedin-alt"></i>
-            </a>
-            <a
-              href="https://github.com/Mikael-Kobama"
-              target="_blank"
-              class="footer__social-icon"
-            >
-              <i class="uil uil-github-alt"></i>
-            </a>
-            <a
-              href="/cdn-cgi/l/email-protection#87ece8e5e6eae6a9eaeeece6e2ebc7e0eae6eeeba9e4e8ea"
-              class="footer__social-icon"
-            >
-              <i class="uil uil-envelope"></i>
-            </a>
-            <a href="tel:(11)95109-5489" class="footer__social-icon">
-              <i class="uil uil-phone-alt"></i>
-            </a>
-          </div>
+          </blockquote>
         </div>
-        <p class="footer__copy">
-          &#169; 2025 Mikael Kobama. Todos os direitos reservados.
-        </p>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <p class="footer__copy">
+            <span
+              data-pt="© 2025 Mikael Kobama. Feito com"
+              data-en="© 2025 Mikael Kobama. Made with"
+              >© 2025 Mikael Kobama. Feito com</span
+            >
+            <span class="footer__heart" aria-label="amor">&#10084;</span>
+            <span
+              data-pt="em São Paulo, Brasil."
+              data-en="in São Paulo, Brazil."
+              >em São Paulo, Brasil.</span
+            >
+          </p>
+        </div>
       </div>
     </footer>
 
     <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="uil uil-arrow-up scrollup__icon"></i>
+    <a href="#home" class="scrollup" id="scroll-up" aria-label="Voltar ao topo">
+      <i class="uil uil-arrow-up scrollup__icon" aria-hidden="true"></i>
     </a>
 
-    <!--==================== SWIPER JS ====================-->
     <script src="./assets/js/swiper-bundle.min.js"></script>
-
-    <!--==================== MAIN JS ====================-->
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
