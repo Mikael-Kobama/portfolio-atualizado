@@ -191,6 +191,9 @@
     <main id="main-content">
       <!--==================== HOME ====================-->
       <section class="home section" id="home" aria-label="Apresentação">
+        <div class="home__orbs" aria-hidden="true">
+          <span class="home__orb home__orb--gold"></span>
+        </div>
         <div class="home__container container">
           <div class="home__content">
             <div class="home__social" role="list" aria-label="Redes sociais">
@@ -288,7 +291,7 @@
               <div class="home__actions">
                 <div class="home__cv-group">
                   <a
-                    href="./assets/pdf/mikael-kobama-cv.pdf"
+                    href="./assets/pdf/Mikael_Kobama_CV.pdf"
                     download
                     class="button button--primary button--flex"
                     aria-label="Baixar currículo em português"
@@ -302,7 +305,7 @@
                     >
                   </a>
                   <a
-                    href="./assets/pdf/mikael-kobama-cv-en.pdf"
+                    href="./assets/pdf/Mikael_Kobama_CV_EN.pdf"
                     download
                     class="button button--outline button--flex"
                     aria-label="Download resume in English"
@@ -382,10 +385,10 @@
                 Desenvolvedor Full Stack com bacharelado em Sistemas de
                 Informação, experiência prática com React.js, Node.js,
                 TypeScript e Cloud AWS. Vencedor do hackathon Hack2Hire com uma
-                solução serverless de IA generativa na AWS. Certificado como
-                AWS Developer Associate e Cloud Practitioner, com inglês
-                avançado (C1 – CEFR). Apaixonado por arquiteturas escaláveis,
-                Clean Code e soluções que impactam o mundo real.
+                solução serverless de IA generativa na AWS. Certificado como AWS
+                Developer Associate e Cloud Practitioner, com inglês avançado
+                (C1 – CEFR). Apaixonado por arquiteturas escaláveis, Clean Code
+                e soluções que impactam o mundo real.
               </p>
 
               <div class="about__info">
@@ -1873,7 +1876,7 @@
                 />
                 <div class="portfolio__overlay" aria-hidden="true">
                   <a
-                    href="https://github.com/Mikael-Kobama/smart-bus-app"
+                    href="https://github.com/Mikael-Kobama/shortner-url"
                     target="_blank"
                     rel="noopener"
                     class="portfolio__overlay-btn"
@@ -1903,7 +1906,69 @@
                   <span>TypeScript</span><span>MongoDB</span><span>Docker</span>
                 </div>
                 <a
-                  href="https://github.com/Mikael-Kobama/smart-bus-app"
+                  href="https://github.com/Mikael-Kobama/shortner-url"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                >
+                  <span data-pt="Ver código" data-en="View code"
+                    >Ver código</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+            <article
+              class="portfolio__card fade-up"
+              data-type="backend"
+              role="listitem"
+            >
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/share-recording-app.png"
+                  alt="Encurtador de URL"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://github.com/Mikael-Kobama/screen_recording_sharing_app"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Back-end</span>
+                <h3
+                  class="portfolio__title"
+                  data-pt=" SnapCast Fullstack"
+                  data-en="SnapCast"
+                >
+                  SnapCast
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Full-stack com TypeScript + Better Auth. Frontend dinâmico com Tailwind CSS."
+                  data-en="Full-stack with TypeScript + Better Auth. Dynamic frontend with Tailwind CSS"
+                >
+                  plataforma Full Stack que permite aos usuários gravar a tela
+                  do computador diretamente pelo navegador, realizar o upload
+                  desses vídeos de forma integrada e compartilhá-los
+                  instantaneamente por meio de links únicos.
+                </p>
+                <div class="portfolio__tags">
+                  <span>TypeScript</span><span>Better Auth</span
+                  ><span>Arcjet</span>
+                </div>
+                <a
+                  href=""
                   target="_blank"
                   rel="noopener"
                   class="portfolio__button button--flex"
@@ -1965,6 +2030,66 @@
                 </div>
                 <a
                   href="https://github.com/Mikael-Kobama/email-service-backend/tree/main"
+                  target="_blank"
+                  rel="noopener"
+                  class="portfolio__button button--flex"
+                >
+                  <span data-pt="Ver código" data-en="View code"
+                    >Ver código</span
+                  >
+                  <i
+                    class="uil uil-arrow-right button__icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </article>
+            <article
+              class="portfolio__card fade-up"
+              data-type="backend"
+              role="listitem"
+            >
+              <div class="portfolio__img-wrap">
+                <img
+                  src="./assets/img/credi-facil-idp.png"
+                  alt=" Intelligent Document Processing para Análise de Crédito"
+                  class="portfolio__img"
+                  loading="lazy"
+                />
+                <div class="portfolio__overlay" aria-hidden="true">
+                  <a
+                    href="https://github.com/Mikael-Kobama/credi-facil-idp"
+                    target="_blank"
+                    rel="noopener"
+                    class="portfolio__overlay-btn"
+                    tabindex="-1"
+                    ><i class="uil uil-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="portfolio__data">
+                <span class="portfolio__type">Back-end</span>
+                <h3
+                  class="portfolio__title"
+                  data-pt="Plataforma de Processamento Inteligente de Documentos"
+                  data-en="Intelligent Document Processing Platform"
+                >
+                  Plataforma de Processamento Inteligente de Documentos
+                </h3>
+                <p
+                  class="portfolio__description"
+                  data-pt="Arquitetura 100% serverless na AWS: o pipeline usa AWS Lambda e Step Functions para orquestração, EventBridge para comunicação assíncrona entre componentes."
+                  data-en="100% serverless architecture on AWS: the pipeline uses AWS Lambda and Step Functions for orchestration, and EventBridge for asynchronous communication between components.."
+                >
+                  Arquitetura 100% serverless na AWS: o pipeline usa AWS Lambda
+                  e Step Functions para orquestração, EventBridge para
+                  comunicação assíncrona entre componentes.
+                </p>
+                <div class="portfolio__tags">
+                  <span>AWS</span><span>Python</span><span>Async</span>
+                </div>
+                <a
+                  href="https://github.com/Mikael-Kobama/credi-facil-idp"
                   target="_blank"
                   rel="noopener"
                   class="portfolio__button button--flex"
@@ -2249,7 +2374,10 @@
               </div>
             </div>
             <div class="qualification__item fade-up" role="listitem">
-              <div class="qualification__dot qualification__dot--highlight" aria-hidden="true">
+              <div
+                class="qualification__dot qualification__dot--highlight"
+                aria-hidden="true"
+              >
                 <i class="uil uil-trophy"></i>
               </div>
               <div class="qualification__body">
@@ -2260,7 +2388,9 @@
                 >
                   1º Lugar — Hackathon Hack2Hire
                 </h3>
-                <span class="qualification__subtitle">Escola da Nuvem × AWS</span>
+                <span class="qualification__subtitle"
+                  >Escola da Nuvem × AWS</span
+                >
                 <div class="qualification__calendar">
                   <i class="uil uil-calendar-alt" aria-hidden="true"></i>
                   <span

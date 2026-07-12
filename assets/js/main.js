@@ -1,29 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   /*==================== TRANSLATIONS ====================*/
   const i18n = {
     pt: {
-      "nav-home":          "Home",
-      "nav-about":         "Sobre",
-      "nav-skills":        "Habilidades",
-      "nav-portfolio":     "Portfolio",
-      "nav-certs":         "Certificações",
+      "nav-home": "Home",
+      "nav-about": "Sobre",
+      "nav-skills": "Habilidades",
+      "nav-portfolio": "Portfolio",
+      "nav-certs": "Certificações",
       "nav-qualification": "Formação",
-      "lang-label":        "EN",
-      "theme-label-dark":  "Tema escuro",
+      "lang-label": "EN",
+      "theme-label-dark": "Tema escuro",
       "theme-label-light": "Tema claro",
     },
     en: {
-      "nav-home":          "Home",
-      "nav-about":         "About",
-      "nav-skills":        "Skills",
-      "nav-portfolio":     "Portfolio",
-      "nav-certs":         "Certs",
+      "nav-home": "Home",
+      "nav-about": "About",
+      "nav-skills": "Skills",
+      "nav-portfolio": "Portfolio",
+      "nav-certs": "Certs",
       "nav-qualification": "Education",
-      "lang-label":        "PT",
-      "theme-label-dark":  "Dark theme",
+      "lang-label": "PT",
+      "theme-label-dark": "Dark theme",
       "theme-label-light": "Light theme",
-    }
+    },
   };
 
   let currentLang = localStorage.getItem("selected-lang") || "pt";
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
 
     // Update all [data-pt] / [data-en] elements
-    document.querySelectorAll("[data-pt][data-en]").forEach(el => {
+    document.querySelectorAll("[data-pt][data-en]").forEach((el) => {
       const val = lang === "pt" ? el.dataset.pt : el.dataset.en;
       if (val !== undefined) el.innerHTML = val;
     });
@@ -46,22 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (langLabel) langLabel.textContent = lang === "pt" ? "EN" : "PT";
 
     // Update page title
-    document.title = lang === "pt"
-      ? "Mikael Kobama — Dev Full Stack"
-      : "Mikael Kobama — Full Stack Developer";
+    document.title =
+      lang === "pt"
+        ? "Mikael Kobama — Dev Full Stack"
+        : "Mikael Kobama — Full Stack Developer";
 
     // Update meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.content = lang === "pt"
-        ? "Mikael Kobama — Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
-        : "Mikael Kobama — Junior Full Stack Developer | AWS | React | Node.js";
+      metaDesc.content =
+        lang === "pt"
+          ? "Mikael Kobama — Desenvolvedor Full Stack Júnior | AWS | React | Node.js"
+          : "Mikael Kobama — Junior Full Stack Developer | AWS | React | Node.js";
     }
 
     // Update skill names that have data-pt/en inside .skills__name
-    document.querySelectorAll(".skills__name[data-pt][data-en]").forEach(el => {
-      el.textContent = lang === "pt" ? el.dataset.pt : el.dataset.en;
-    });
+    document
+      .querySelectorAll(".skills__name[data-pt][data-en]")
+      .forEach((el) => {
+        el.textContent = lang === "pt" ? el.dataset.pt : el.dataset.en;
+      });
   }
 
   // Init language
@@ -77,18 +80,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*==================== THEME ====================*/
   const themeButton = document.getElementById("theme-button");
-  const themeIcon   = document.getElementById("theme-icon");
-  const lightClass  = "light-theme";
+  const themeIcon = document.getElementById("theme-icon");
+  const lightClass = "light-theme";
 
   function applyTheme(theme) {
     if (theme === "light") {
       document.body.classList.add(lightClass);
-      if (themeIcon) { themeIcon.classList.remove("uil-moon"); themeIcon.classList.add("uil-sun"); }
-      if (themeButton) themeButton.setAttribute("aria-label", currentLang === "pt" ? "Ativar tema escuro" : "Enable dark theme");
+      if (themeIcon) {
+        themeIcon.classList.remove("uil-moon");
+        themeIcon.classList.add("uil-sun");
+      }
+      if (themeButton)
+        themeButton.setAttribute(
+          "aria-label",
+          currentLang === "pt" ? "Ativar tema escuro" : "Enable dark theme",
+        );
     } else {
       document.body.classList.remove(lightClass);
-      if (themeIcon) { themeIcon.classList.remove("uil-sun"); themeIcon.classList.add("uil-moon"); }
-      if (themeButton) themeButton.setAttribute("aria-label", currentLang === "pt" ? "Ativar tema claro" : "Enable light theme");
+      if (themeIcon) {
+        themeIcon.classList.remove("uil-sun");
+        themeIcon.classList.add("uil-moon");
+      }
+      if (themeButton)
+        themeButton.setAttribute(
+          "aria-label",
+          currentLang === "pt" ? "Ativar tema claro" : "Enable light theme",
+        );
     }
     localStorage.setItem("selected-theme", theme);
   }
@@ -104,9 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /*==================== MOBILE MENU ====================*/
-  const navMenu    = document.getElementById("nav-menu");
-  const navToggle  = document.getElementById("nav-toggle");
-  const navClose   = document.getElementById("nav-close");
+  const navMenu = document.getElementById("nav-menu");
+  const navToggle = document.getElementById("nav-toggle");
+  const navClose = document.getElementById("nav-close");
   const navOverlay = document.getElementById("nav-overlay");
 
   function openMenu() {
@@ -125,17 +142,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   }
 
-  if (navToggle)  navToggle.addEventListener("click", openMenu);
-  if (navClose)   navClose.addEventListener("click", closeMenu);
+  if (navToggle) navToggle.addEventListener("click", openMenu);
+  if (navClose) navClose.addEventListener("click", closeMenu);
   if (navOverlay) navOverlay.addEventListener("click", closeMenu);
 
   // Close on any nav link click (both desktop and mobile)
-  document.querySelectorAll(".nav__link").forEach(link => {
+  document.querySelectorAll(".nav__link").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 
   // Close on Escape key
-  document.addEventListener("keydown", e => {
+  document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 
@@ -144,13 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function scrollActive() {
     const scrollY = window.pageYOffset;
-    sections.forEach(section => {
-      const top    = section.offsetTop - 90;
+    sections.forEach((section) => {
+      const top = section.offsetTop - 90;
       const height = section.offsetHeight;
-      const id     = section.getAttribute("id");
+      const id = section.getAttribute("id");
       // update both desktop and mobile links
-      document.querySelectorAll(`.nav__link[href*="${id}"]`).forEach(link => {
-        link.classList.toggle("active-link", scrollY >= top && scrollY < top + height);
+      document.querySelectorAll(`.nav__link[href*="${id}"]`).forEach((link) => {
+        link.classList.toggle(
+          "active-link",
+          scrollY >= top && scrollY < top + height,
+        );
       });
     });
   }
@@ -159,32 +179,33 @@ document.addEventListener("DOMContentLoaded", () => {
   /*==================== SCROLL UP ====================*/
   const scrollUpBtn = document.getElementById("scroll-up");
   function handleScrollUp() {
-    if (scrollUpBtn) scrollUpBtn.classList.toggle("show-scroll", window.scrollY >= 400);
+    if (scrollUpBtn)
+      scrollUpBtn.classList.toggle("show-scroll", window.scrollY >= 400);
   }
   window.addEventListener("scroll", handleScrollUp, { passive: true });
 
   /*==================== SKILLS ACCORDION ====================*/
   const skillsContents = document.querySelectorAll(".skills__content");
-  const skillsHeaders  = document.querySelectorAll(".skills__header");
+  const skillsHeaders = document.querySelectorAll(".skills__header");
 
   function animateBars(content) {
     if (content.classList.contains("animated")) return;
     content.classList.add("animated");
   }
 
-  skillsHeaders.forEach(header => {
+  skillsHeaders.forEach((header) => {
     header.addEventListener("click", function () {
       const parent = this.closest(".skills__content");
       const isOpen = parent.classList.contains("skills__open");
 
-      skillsContents.forEach(c => {
+      skillsContents.forEach((c) => {
         c.classList.remove("skills__open");
         c.classList.add("skills__close");
         this.setAttribute && this.setAttribute("aria-expanded", "false");
       });
 
       // Update aria-expanded on all headers
-      skillsHeaders.forEach(h => h.setAttribute("aria-expanded", "false"));
+      skillsHeaders.forEach((h) => h.setAttribute("aria-expanded", "false"));
 
       if (!isOpen) {
         parent.classList.add("skills__open");
@@ -196,8 +217,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Keyboard support
-    header.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); header.click(); }
+    header.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        header.click();
+      }
     });
   });
 
@@ -206,18 +230,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (firstOpen) setTimeout(() => animateBars(firstOpen), 300);
 
   /*==================== PORTFOLIO FILTER ====================*/
-  const filterBtns     = document.querySelectorAll(".portfolio__filter-btn");
+  const filterBtns = document.querySelectorAll(".portfolio__filter-btn");
   const portfolioCards = document.querySelectorAll(".portfolio__card");
 
-  filterBtns.forEach(btn => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
+      filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
       const filter = btn.dataset.filter;
       let visibleCount = 0;
 
-      portfolioCards.forEach(card => {
+      portfolioCards.forEach((card) => {
         const matches = filter === "all" || card.dataset.type === filter;
         card.classList.toggle("hidden", !matches);
         if (matches) visibleCount++;
@@ -229,39 +253,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const fadeEls = document.querySelectorAll(".fade-up");
 
   if ("IntersectionObserver" in window) {
-    const fadeObs = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // Stagger siblings inside same parent
-          const siblings = entry.target.parentElement.querySelectorAll(".fade-up");
-          siblings.forEach((el, idx) => {
-            if (el === entry.target) {
-              setTimeout(() => el.classList.add("visible"), idx * 80);
-            }
-          });
-          entry.target.classList.add("visible");
-          fadeObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    const fadeObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Stagger siblings inside same parent
+            const siblings =
+              entry.target.parentElement.querySelectorAll(".fade-up");
+            siblings.forEach((el, idx) => {
+              if (el === entry.target) {
+                setTimeout(() => el.classList.add("visible"), idx * 80);
+              }
+            });
+            entry.target.classList.add("visible");
+            fadeObs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    );
 
-    fadeEls.forEach(el => fadeObs.observe(el));
+    fadeEls.forEach((el) => fadeObs.observe(el));
   } else {
     // Fallback
-    fadeEls.forEach(el => el.classList.add("visible"));
+    fadeEls.forEach((el) => el.classList.add("visible"));
   }
 
   /*==================== SKILLS BARS ON SCROLL ====================*/
   if ("IntersectionObserver" in window) {
-    const skillsObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const openContent = entry.target.querySelector(".skills__content.skills__open");
-          if (openContent) animateBars(openContent);
-          skillsObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    const skillsObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const openContent = entry.target.querySelector(
+              ".skills__content.skills__open",
+            );
+            if (openContent) animateBars(openContent);
+            skillsObs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
 
     const skillsSection = document.getElementById("skills");
     if (skillsSection) skillsObs.observe(skillsSection);
@@ -269,19 +302,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*==================== CERTS ANIMATION ====================*/
   if ("IntersectionObserver" in window) {
-    const certsObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll(".certs__card").forEach((card, i) => {
-            setTimeout(() => card.classList.add("visible"), i * 80);
-          });
-          certsObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const certsObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".certs__card").forEach((card, i) => {
+              setTimeout(() => card.classList.add("visible"), i * 80);
+            });
+            certsObs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
     const certsGrid = document.querySelector(".certs__grid");
     if (certsGrid) certsObs.observe(certsGrid);
   }
-
 }); // end DOMContentLoaded
