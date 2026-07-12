@@ -15,6 +15,9 @@
   --accent:       #00e5a0;
   --accent-alt:   #7c6bff;
   --accent-dark:  #00c988;
+  --gold:         #ffb020;
+  --gold-soft:    rgba(255,176,32,0.1);
+  --gold-border:  rgba(255,176,32,0.28);
   --title:        #f0f1f5;
   --text:         #9499b0;
   --muted:        #4a4f63;
@@ -338,6 +341,10 @@ body.light-theme .header { background: rgba(244,245,251,0.95); }
   box-shadow: 0 0 50px rgba(0,229,160,0.12);
 }
 
+.home__badges {
+  display: flex; flex-wrap: wrap; gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+}
 .home__badge {
   display: inline-flex; align-items: center; gap: var(--sp-2);
   background: rgba(0,229,160,0.08);
@@ -345,9 +352,15 @@ body.light-theme .header { background: rgba(244,245,251,0.95); }
   border-radius: var(--radius-pill);
   padding: 0.35rem var(--sp-4);
   font-size: var(--fs-xs); font-weight: 600;
-  color: var(--accent); margin-bottom: var(--sp-4);
+  color: var(--accent); margin-bottom: 0;
   width: fit-content;
 }
+.home__badge--achievement {
+  background: var(--gold-soft);
+  border-color: var(--gold-border);
+  color: var(--gold);
+}
+.home__badge--achievement i { font-size: 0.9rem; }
 .home__badge-dot {
   width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
   animation: pulse 2s infinite;
@@ -412,9 +425,11 @@ body.light-theme .header { background: rgba(244,245,251,0.95); }
 }
 
 .about__info {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: var(--sp-4); margin-bottom: var(--sp-6);
 }
+.about__stat--link { text-decoration: none; transition: var(--transition); }
+.about__stat--link:hover .about__info-title { color: var(--gold); }
 .about__info-title {
   display: block; font-family: var(--font-display);
   font-weight: 800; font-size: 1.75rem;
@@ -588,6 +603,20 @@ body.light-theme .header { background: rgba(244,245,251,0.95); }
   transition: var(--transition);
 }
 .certs__card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.certs__card--highlight {
+  background: linear-gradient(135deg, var(--gold-soft), var(--surface));
+  border-color: var(--gold-border);
+  position: relative; overflow: hidden;
+}
+.certs__card--highlight:hover { border-color: var(--gold); }
+.certs__card--highlight .certs__icon {
+  background: rgba(255,176,32,0.16); color: var(--gold);
+}
+.certs__card--highlight .certs__issuer { color: var(--gold); }
+.certs__badge-rank {
+  position: absolute; top: var(--sp-3); right: var(--sp-3);
+  font-size: 1.4rem; line-height: 1;
+}
 .certs__icon {
   width: 44px; height: 44px; min-width: 44px;
   background: rgba(0,229,160,0.1); border-radius: 10px;
@@ -619,6 +648,10 @@ body.light-theme .header { background: rgba(244,245,251,0.95); }
   background: var(--surface); border: 2px solid var(--accent);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-size: 1rem; color: var(--accent); z-index: 1;
+}
+.qualification__dot--highlight {
+  border-color: var(--gold); color: var(--gold);
+  box-shadow: 0 0 0 4px var(--gold-soft);
 }
 .qualification__body {
   background: var(--surface); border: 1px solid var(--border);
